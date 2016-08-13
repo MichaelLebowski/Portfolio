@@ -12,16 +12,16 @@ body {
         nav {
             #navigation {
                 display: flex;
-                width: 100%;
+                width: 350px;
                 .home {
                     flex-grow: 1;
                 }
                 .navigation-list {
-                    flex-grow: 4;
+                    flex-grow: 7;
                     ul {
-                        display: flex;
+                        /*display: flex;
                         flex-flow: row nowrap;
-                        justify-content: space-between;
+                        justify-content: space-between;*/
                         li {
                             list-style: none;
                             box-sizing: border-box;
