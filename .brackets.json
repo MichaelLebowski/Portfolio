@@ -1,11 +1,9 @@
 {
-    "sass.enabled": false,
     "path": {
         "scss/style.scss": {
             "sass.enabled": true,
             "sass.options": {
-                "outputDir": "../css/",
-                "includePaths": [],
+                "output": "../css/style.css",
                 "sourceComments": "map",
                 "outputStyle": "compressed"
             }
