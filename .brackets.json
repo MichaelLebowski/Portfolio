@@ -1,6 +1,6 @@
 {
     "path": {
-        "scss/style.scss": {
+        "style.scss": {
             "sass.enabled": true,
             "sass.options": {
                 "output": "style.css",
