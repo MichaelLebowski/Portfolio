@@ -1,5 +1,5 @@
 {
-    "sass.enabled": false,
+    "sass.enabled": true,
     "sass.compiler": "libsass",
     "path": {
         "scss/style.scss": {
