@@ -11,8 +11,10 @@ body {
                 width: 600px;
                 .home {
                     flex-grow: 1;
+                    box-sizing: border-box;
                 }
                 .navigation-list {
+                    box-sizing: border-box;
                     flex-grow: 1;
                     ul {
                         width: auto;
