@@ -38,13 +38,19 @@
                                 width: auto;
                                 height: 100%;
                                 list-style: none;
+                                margin-right: 15px;
+                                &:last-of-type {
+                                    margin-right: 0;
+                                }
                                 a {
                                     width: 100%;
                                     height: inherit;
-                                    display: block;
+                                    display: flex;
+                                    align-items: center;
                                     box-sizing: border-box;
                                     padding: 5px 10px;
                                     line-height: 1em;
+                                    text-decoration: none;
                                     margin: 0;
                                 }
                             }
