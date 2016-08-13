@@ -6,7 +6,7 @@
             "sass.options": {
                 "outputDir": "../css/",
                 "includePaths": [],
-                "sourceComments": map,
+                "sourceComments": "map",
                 "outputStyle": "compressed"
             }
         }
