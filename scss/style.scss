@@ -11,13 +11,11 @@ body {
                 width: 100%;
                 height: 50px;
                 .home {
-                    flex-grow: 2;
                     box-sizing: border-box;
                     background-color: red;
                 }
                 .navigation-list {
                     box-sizing: border-box;
-                    flex-grow: 4;
                     background-color: skyblue;
                     ul {
                         flex: none;
