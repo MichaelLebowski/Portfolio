@@ -1,4 +1,6 @@
 {
+    "sass.enabled": false,
+    "sass.compiler": "libsass",
     "path": {
         "css/style.scss": {
             "sass.enabled": true,
@@ -7,7 +9,7 @@
                     "../bower_components/bourbon/app/assets/stylesheets/"
                 ],
                 "output": "style.css",
-                "outputDir": "css/",
+                "outputDir": "../css/",
                 "imagePath": null,
                 "sourceComments": "map",
                 "outputStyle": "compressed"
