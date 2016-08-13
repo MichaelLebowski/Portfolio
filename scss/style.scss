@@ -15,10 +15,12 @@ body {
                 .navigation-list {
                     flex-grow: 5;
                     ul {
+                        width: auto;
                         display: flex;
                         flex-flow: row nowrap;
                         justify-content: space-between;
                         li {
+                            width: auto;
                             list-style: none;
                             box-sizing: border-box;
                             padding: 5px 10px;
