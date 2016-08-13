@@ -4,7 +4,7 @@
             "sass.enabled": true,
             "sass.options": {
                 "includePaths": [
-                    "css/"
+                    "../bower_components/bourbon/app/assets/stylesheets/"
                 ],
                 "output": "style.css",
                 "outputDir": "css/",
