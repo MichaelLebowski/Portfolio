@@ -4,7 +4,6 @@
         "scss/style.scss": {
             "sass.enabled": true,
             "sass.options": {
-                "output": "style.css",
                 "outputDir": "../css/",
                 "includePaths": [],
                 "sourceComments": map,
