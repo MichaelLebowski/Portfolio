@@ -7,8 +7,7 @@
                 "outputDir": "../css",
                 "sourceComments": "map",
                 "outputStyle": "compressed"
-            },
-            "brackets-git.gitPath": "git"
+            }
         }
     }
 }
