@@ -1,9 +1,10 @@
 {
     "path": {
-        "scss/style.scss": {
+        "sass/style.scss": {
             "sass.enabled": true,
             "sass.options": {
                 "output": "style.css",
+                "imagePath": null,
                 "sourceComments": "map",
                 "outputStyle": "compressed"
             }
