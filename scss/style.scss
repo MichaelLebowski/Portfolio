@@ -15,10 +15,12 @@ body {
                 .home {
                     flex-grow: 2;
                     box-sizing: border-box;
+                    background-color: red;
                 }
                 .navigation-list {
                     box-sizing: border-box;
                     flex-grow: 3;
+                    background-color: skyblue;
                     ul {
                         width: inherit;
                         display: flex;
