@@ -1,47 +1,56 @@
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    main {
-        nav {
-            #navigation {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                height: 50px;
-                .home {
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        main {
+            nav {
+                #navigation {
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    box-sizing: border-box;
-                    background-color: red;
-                    a {
-                        .logo {
-                            width: 150px;
-                            height: 35px;
+                    justify-content: space-between;
+                    width: 100%;
+                    height: 50px;
+                    .home {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-sizing: border-box;
+                        background-color: red;
+                        a {
+                            .logo {
+                                width: 150px;
+                                height: 35px;
+                            }
                         }
                     }
-                }
-                .navigation-list {
-                    box-sizing: border-box;
-                    background-color: skyblue;
-                    ul {
-                        width: inherit;
-                        display: flex;
-                        flex-flow: row wrap;
-                        margin: 0;
-                        padding: 0;
-                        li {
-                            width: auto;
-                            list-style: none;
-                            box-sizing: border-box;
-                            padding: 5px 10px;
+                    .navigation-list {
+                        box-sizing: border-box;
+                        background-color: skyblue;
+                        ul {
+                            width: inherit;
+                            height: 100%;
+                            display: flex;
+                            flex-flow: row wrap;
+                            margin: 0;
+                            padding: 0;
+                            li {
+                                width: auto;
+                                height: 100%;
+                                list-style: none;
+                                a {
+                                    width: 100%;
+                                    height: inherit;
+                                    display: block;
+                                    box-sizing: border-box;
+                                    padding: 5px 10px;
+                                    line-height: 1em;
+                                    margin: 0;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
-}
