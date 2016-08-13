@@ -2,7 +2,7 @@
     "sass.enabled": false,
     "sass.compiler": "libsass",
     "path": {
-        "css/style.scss": {
+        "scss/style.scss": {
             "sass.enabled": true,
             "sass.options": {
                 "includePaths": [
