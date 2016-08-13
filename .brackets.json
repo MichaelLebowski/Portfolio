@@ -4,6 +4,7 @@
             "sass.enabled": true,
             "sass.options": {
                 "output": "style.css",
+                "outputDir": "../css",
                 "sourceComments": "map",
                 "outputStyle": "compressed"
             },
