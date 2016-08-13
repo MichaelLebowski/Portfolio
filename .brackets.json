@@ -5,11 +5,8 @@
             "sass.options": {
                 "output": "style.css",
                 "outputDir": "../css/",
-                "imagePath": null,
-                "sourceComments": "map",
-                "outputStyle": "compressed"
-            },
-            "brackets-git.gitPath": "git"
+                "outputStyle": "compressed",
+            }
         }
     }
 }
