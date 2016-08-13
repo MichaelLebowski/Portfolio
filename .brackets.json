@@ -6,7 +6,8 @@
                 "output": "style.css",
                 "outputDir": "../css/",
                 "outputStyle": "compressed"
-            }
+            },
+            "brackets-git.gitPath": "git"
         }
     }
 }
