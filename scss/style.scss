@@ -45,7 +45,7 @@
                             background-color: #fff;
                             left: 0;
                             bottom: 0;
-                            z-index: 99;
+                            z-index: 999;
                         }
                         #mobile-nav {
                             display: none;
@@ -136,6 +136,8 @@
                                         display: none;
                                     }
                                     a {
+                                        position: relative;
+                                        display: inline-block;
                                         width: auto;
                                         left: 100%;
                                     }

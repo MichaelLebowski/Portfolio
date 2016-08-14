@@ -1,118 +1,154 @@
+var windowWidth,
+    navWidth;
+
 $(window).load(function () {
-    var view;
     $('.vertical-animation').css('width', $('nav .navigation-list li:first-child').outerWidth());
-    var windowWidth = $(window).width(),
+    windowWidth = $(window).width(),
         navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
     if (windowWidth >= navWidth) {
-        view = 'desktop';
-        setOptions();
+        desktopView();
     } else {
-        view = 'mobile';
-        setOptions();
+        mobileView();
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
         if (windowWidth >= navWidth) {
-            view = 'desktop';
-            setOptions();
+            desktopView();
         } else {
-            view = 'mobile';
-            setOptions();
+            mobileView();
         }
     });
 
 });
 
-function setOptions() {
-    if (view === 'desktop') {
-        desktopView();
-    } else if (view === 'mobile') {
-        mobileView();
-    }
+function desktopView() {
+    $('.navigation-list #mobile-nav').removeClass('active');
+    $('#navigation').removeClass('mobile');
+    $('.navigation-list ul').css('left', 0);
 
-    function desktopView() {
-        $('#navigation').removeClass('mobile');
+    function navAnim() {
 
-        function navAnim() {
+        var width,
+            index,
+            height,
+            id,
+            element,
+            leftPosition,
+            activeId,
+            activeElement,
+            activePosition,
+            activeWith;
 
-            var width,
-                index,
-                height,
-                id,
-                element,
-                leftPosition,
-                activeId,
-                activeElement,
-                activePosition,
-                activeWith;
+        width = $('.navigation-list ul li.active').width();
+        activeWith = $('.navigation-list ul li.active').width();
+        activeId = $('.navigation-list ul li.active').attr('id');
+        activeElement = document.getElementById(activeId);
+        activePosition = activeElement.offsetLeft;
+        $('.navigation-list ul li.active').closest('.navigation-list').find('.vertical-animation').stop().animate({
+            'width': width,
+            'left': leftPosition
+        }, 0);
 
-            width = $('.navigation-list ul li.active').width();
-            activeWith = $('.navigation-list ul li.active').width();
-            $('.navigation-list ul li.active').closest('.navigation-list').find('.vertical-animation').stop().animate({
-                'width': width
-            }, 0);
-
-            $('.navigation-list ul li')
-                .mouseover(function () {
-                    index = $(this).index();
-                    width = $(this).width();
-                    activeId = $('.navigation-list ul li.active').attr('id');
-                    activeElement = document.getElementById(activeId);
-                    activePosition = activeElement.offsetLeft;
-                    activeWith = $('.navigation-list ul li.active').width();
-                    id = $(this).attr('id');
-                    element = document.getElementById(id);
-                    leftPosition = element.offsetLeft;
-                    $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
-                        'width': width,
-                        'left': leftPosition
-                    }, 'slow');
-                    $(this).click(function () {
-                        if (!$(this).hasClass('active')) {
-                            activeId = $(this).attr('id');
-                            activeElement = document.getElementById(activeId);
-                            activePosition = activeElement.offsetLeft;
-                            $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
-                                'width': width,
-                                'left': leftPosition
-                            }, 'slow');
-                            $('.navigation-list ul li').removeClass('active');
-                            $(this).addClass('active');
-                        }
-                    });
-                })
-                .mouseleave(function () {
+        $('.navigation-list ul li')
+            .mouseover(function () {
+                index = $(this).index();
+                width = $(this).width();
+                activeId = $('.navigation-list ul li.active').attr('id');
+                activeElement = document.getElementById(activeId);
+                activePosition = activeElement.offsetLeft;
+                activeWith = $('.navigation-list ul li.active').width();
+                id = $(this).attr('id');
+                element = document.getElementById(id);
+                leftPosition = element.offsetLeft;
+                $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                    'width': width,
+                    'left': leftPosition
+                }, 'slow');
+                $(this).click(function () {
                     if (!$(this).hasClass('active')) {
+                        activeId = $(this).attr('id');
+                        activeElement = document.getElementById(activeId);
+                        activePosition = activeElement.offsetLeft;
                         $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
-                            'width': activeWith,
-                            'left': activePosition,
+                            'width': width,
+                            'left': leftPosition
                         }, 'slow');
+                        $('.navigation-list ul li').removeClass('active');
+                        $(this).addClass('active');
                     }
                 });
-        }
-        navAnim();
+            })
+            .mouseleave(function () {
+                if (!$(this).hasClass('active')) {
+                    $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                        'width': activeWith,
+                        'left': activePosition,
+                    }, 'slow');
+                }
+            });
     }
+    navAnim();
+}
 
 
-    function mobileView() {
-        $('#navigation').addClass('mobile');
-        $('#mobile-nav').click(function () {
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-                $(this).next('ul').stop().animate({
-                    'left': '100%'
-                }, function () {
-                    $(this).next('ul').removeClass('active');
-
-                });
+function mobileView() {
+    var width = $(window).width();
+    $('#navigation').addClass('mobile');
+    This = $('#mobile-nav');
+    if (This.hasClass('active')) {
+        This.next('ul').css('left', 0);
+    } else {
+        This.next('ul').css('left', width);
+        This.next('ul').find('a').css('left', width);
+    }
+    $(window).resize(function () {
+        if ($('#navigation').hasClass('mobile')) {
+            if (This.hasClass('active')) {
+                This.next('ul').css('left', 0);
             } else {
-                $(this).addClass('active');
-                $(this).next('ul').stop().animate({
-                    'left': '0'
-                }, function () {
-                    $(this).next('ul').addClass('active');
-                });
+                This.next('ul').css('left', width);
             }
+        } else {
+            This.next('ul').css('left', 0);
+        }
+
+    });
+    $('.navigation-list ul').css('left', width);
+    $('#mobile-nav').unbind().click(function () {
+        windowWidth = $(window).width();
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            $(this).next('ul').stop().animate({
+                'left': width
+            }, 'slow', function () {
+                $(this).next('ul').removeClass('active');
+            });
+            $(this).next('ul').find('a').each(function (i) {
+                var speed = (i + 1) * 300
+                $(this).stop().animate({
+                    'left': windowWidth
+                }, speed);
+            });
+        } else if (!$(this).hasClass('active')) {
+            $(this).addClass('active');
+            $(this).next('ul').stop().animate({
+                'left': '0'
+            }, 'slow', function () {
+                $(this).next('ul').addClass('active');
+            });
+            $(this).next('ul').find('a').each(function (i) {
+                var speed = (i + 1) * 200
+                $(this).stop().animate({
+                    'left': '0'
+                }, speed);
+            });
+        }
+    });
+
+    $('.navigation-list ul li')
+        .unbind().mouseover(function () {})
+        .unbind().mouseleave(function () {})
+        .unbind().click(function () {
+
         });
-    }
 }
