@@ -52,15 +52,22 @@
                                 width: auto;
                                 height: 100%;
                                 list-style: none;
+                                margin-left: 1px;
+                                &:first-of-type {
+                                    margin-left: 0;
+                                    &:before {
+                                        display: none;
+                                    }
+                                }
                                 &:before {
                                     content: '';
                                     position: absolute;
-                                    height: 80%;
+                                    height: 26px;
                                     width: 1px;
                                     background-color: #fff;
-                                    right: 0;
+                                    left: 0;
                                     top: 50%;
-                                    margin-top: -40%;
+                                    margin-top: -13px;
                                 }
                                 a {
                                     pointer-events: none;
