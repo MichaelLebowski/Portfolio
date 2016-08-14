@@ -5,6 +5,8 @@ $(window).load(function () {
     el = $('nav .navigation-list li:first-child');
     width = el.outerWidth();
     $('.vertical-animation').css('width', width);
+
+    navAnim();
 });
 
 function navAnim() {
@@ -12,39 +14,48 @@ function navAnim() {
         height,
         id,
         element,
-        topPosition,
+        leftPosition,
         activeId,
         activeElement,
-        activePosition;
-    $('.club-teaser-navigation ul li')
+        activePosition,
+        activeWith;
+    $('.navigation-list ul li')
         .mouseover(function () {
             index = $(this).index();
-            height = $(this).height();
-            activeId = $('.club-teaser-navigation ul li.active').attr('id');
+            width = $(this).width();
+            activeId = $('.navigation-list ul li.active').attr('id');
             activeElement = document.getElementById(activeId);
-            activePosition = activeElement.offsetTop + ((height / 2) - 1);
+            activePosition = activeElement.offsetLeft;
+            activeWith = $('.navigation-list ul li.active').width();
             id = $(this).attr('id');
             element = document.getElementById(id);
-            topPosition = element.offsetTop + ((height / 2) - 1);
-            $(this).closest('.club-teaser-navigation').find('#animation').stop().animate({
-                'top': topPosition,
+            leftPosition = element.offsetLeft;
+            $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                'width': width,
+                'left': leftPosition
             }, 'slow');
             $(this).click(function () {
                 if (!$(this).hasClass('active')) {
                     activeId = $(this).attr('id');
                     activeElement = document.getElementById(activeId);
-                    activePosition = activeElement.offsetTop + ((height / 2) - 1);
-                    $('.club-teaser-navigation ul li').removeClass('active');
+                    activePosition = activeElement.offsetLeft;
+                    $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                        'width': width,
+                        'left': leftPosition
+                    }, 'slow');
+                    $('.navigation-list ul li').removeClass('active');
                     $(this).addClass('active');
-                    $(this).closest('#club-teaser-slider').find('.club-teaser-content .images').removeClass('active');
-                    $(this).closest('#club-teaser-slider').find('.club-teaser-content .images').eq(index).addClass('active');
                 }
             });
         })
         .mouseleave(function () {
-            $(this).closest('.club-teaser-navigation').find('#animation').stop().animate({
-                'top': activePosition,
-            }, 'slow');
+            console.log($(this).attr('class'));
+            if (!$(this).hasClass('active')) {
+                $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                    'width': activeWith,
+                    'left': activePosition,
+                }, 'slow');
+            }
         });
 
 }
