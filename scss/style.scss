@@ -124,11 +124,11 @@
                                 height: 50px;
                                 background-color: darkblue;
                                 cursor: pointer;
-                                z-index: 99;
+                                z-index: 98;
                             }
                             ul {
                                 position: relative;
-                                left: 100% !important;
+                                left: 100%;
                                 flex-flow: column nowrap;
                                 li {
                                     &:before {
