@@ -5,15 +5,19 @@ $(window).load(function () {
         navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
     if (windowWidth >= navWidth) {
         view = 'desktop';
+        setOptions();
     } else {
         view = 'mobile';
+        setOptions();
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
         if (windowWidth >= navWidth) {
             view = 'desktop';
+            setOptions();
         } else {
             view = 'mobile';
+            setOptions();
         }
     });
 

@@ -29,7 +29,7 @@
                             height: 100%;
                             .logo {
                                 padding: 10px;
-                                width: 150px;
+                                width: 160px;
                                 height: 35px;
                             }
                         }
@@ -54,6 +54,7 @@
                             position: relative;
                             width: inherit;
                             height: 100%;
+                            left: 0;
                             display: flex;
                             flex-flow: row nowrap;
                             margin: 0;
