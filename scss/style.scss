@@ -48,9 +48,20 @@
                             margin: 0;
                             padding: 0;
                             li {
+                                position: relative;
                                 width: auto;
                                 height: 100%;
                                 list-style: none;
+                                &:after {
+                                    content: '';
+                                    position: absolute;
+                                    height: 80%;
+                                    width: 1px;
+                                    background-color: #fff;
+                                    right: 0;
+                                    top: 50%;
+                                    margin-top: -40%;
+                                }
                                 a {
                                     pointer-events: none;
                                     width: 100%;
