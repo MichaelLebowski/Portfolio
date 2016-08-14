@@ -5,12 +5,20 @@
         margin: 0;
         padding: 0;
         main {
+            height: 2000px;
             nav {
+                position: relative;
+                width: 100%;
+                height: 80px;
+                margin-bottom: 15px;
                 #navigation {
+                    position: fixed;
                     display: flex;
                     justify-content: space-between;
+                    flex-flow: row nowrap;
                     width: 100%;
-                    height: 50px;
+                    height: inherit;
+                    background-color: #ddd;
                     .home {
                         box-sizing: border-box;
                         background-color: red;
@@ -43,7 +51,7 @@
                             width: inherit;
                             height: 100%;
                             display: flex;
-                            flex-flow: row wrap;
+                            flex-flow: row nowrap;
                             margin: 0;
                             padding: 0;
                             li {

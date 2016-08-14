@@ -57,5 +57,11 @@ function navAnim() {
                 }, 'slow');
             }
         });
+}
 
+function mobileView() {
+    $(window).resize(function () {
+        windowWidth = $(window).width();
+        console.log(windowWidth);
+    });
 }
