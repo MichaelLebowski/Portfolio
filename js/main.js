@@ -117,6 +117,9 @@ function mobileView() {
     $('#mobile-nav').unbind().click(function () {
         windowWidth = $(window).width();
         if ($(this).hasClass('active')) {
+            $(this).animate({
+                'left': windowWidth - 42
+            }, 800, 'easeInOutCubic');
             $(this).removeClass('active');
             $(this).next('ul').stop().animate({
                 'left': width
@@ -131,6 +134,9 @@ function mobileView() {
             });
         } else if (!$(this).hasClass('active')) {
             $(this).addClass('active');
+            $(this).delay(120).animate({
+                'left': 15
+            }, 680, 'easeInOutCubic');
             $(this).next('ul').stop().animate({
                 'left': '0'
             }, 800, 'easeInOutCubic', function () {
