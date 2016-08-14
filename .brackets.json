@@ -8,8 +8,8 @@
                 "outputStyle": "compressed"
             },
             "brackets-git.gitPath": "git",
-            "linting.collapsed": true,
-            "mikaeljorhult.bracketsAutoprefixer.visualCascade": false,
+            "linting.collapsed": false,
+            "mikaeljorhult.bracketsAutoprefixer.visualCascade": true,
             "mikaeljorhult.bracketsAutoprefixer.browsers": [
                 "> 1%",
                 "last 2 versions",
