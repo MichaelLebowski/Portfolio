@@ -77,4 +77,24 @@ function mobileView() {
     $(window).resize(function () {
         mobileStyle();
     });
+
+    $('#mobile-nav').click(function () {
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            $(this).next('ul').stop().animate({
+                'left': '100%'
+            }, function () {
+                $(this).next('ul').removeClass('active');
+            });
+        } else {
+            $(this).addClass('active');
+            $(this).next('ul').stop().animate({
+                    'left': '0'
+                }, function () {
+                    $(this).next('ul').addClass('active');
+                }
+            }
+            $(this).next('ul').addClass('active');
+        }
+    });
 }
