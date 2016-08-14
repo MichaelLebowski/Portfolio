@@ -47,7 +47,7 @@ function desktopView() {
         $('.navigation-list ul li.active').closest('.navigation-list').find('.vertical-animation').stop().animate({
             'width': width,
             'left': leftPosition
-        }, 0);
+        }, 0, 'easeInOutCubic');
 
         $('.navigation-list ul li')
             .mouseover(function () {
@@ -63,7 +63,7 @@ function desktopView() {
                 $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
                     'width': width,
                     'left': leftPosition
-                }, 'slow');
+                }, 800, 'easeInOutCubic');
                 $(this).click(function () {
                     if (!$(this).hasClass('active')) {
                         activeId = $(this).attr('id');
@@ -72,7 +72,7 @@ function desktopView() {
                         $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
                             'width': width,
                             'left': leftPosition
-                        }, 'slow');
+                        }, 800, 'easeInOutCubic');
                         $('.navigation-list ul li').removeClass('active');
                         $(this).addClass('active');
                     }
@@ -83,7 +83,7 @@ function desktopView() {
                     $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
                         'width': activeWith,
                         'left': activePosition,
-                    }, 'slow');
+                    }, 800, 'easeInOutCubic');
                 }
             });
     }
@@ -120,27 +120,27 @@ function mobileView() {
             $(this).removeClass('active');
             $(this).next('ul').stop().animate({
                 'left': width
-            }, 'slow', function () {
+            }, 800, 'easeInOutCubic', function () {
                 $(this).next('ul').removeClass('active');
             });
             $(this).next('ul').find('a').each(function (i) {
                 var speed = (i + 1) * 300
                 $(this).stop().animate({
                     'left': windowWidth
-                }, speed);
+                }, speed, 'easeInOutCubic');
             });
         } else if (!$(this).hasClass('active')) {
             $(this).addClass('active');
             $(this).next('ul').stop().animate({
                 'left': '0'
-            }, 'slow', function () {
+            }, 800, 'easeInOutCubic', function () {
                 $(this).next('ul').addClass('active');
             });
             $(this).next('ul').find('a').each(function (i) {
                 var speed = (i + 1) * 200
                 $(this).stop().animate({
                     'left': '0'
-                }, speed);
+                }, speed, 'easeInOutCubic');
             });
         }
     });
