@@ -45,6 +45,7 @@
                             background-color: white;
                             left: 0;
                             bottom: 0;
+                            z-index: 99;
                         }
                         #mobile-nav {
                             display: none;
@@ -123,6 +124,7 @@
                                 height: 50px;
                                 background-color: darkblue;
                                 cursor: pointer;
+                                z-index: 99;
                             }
                             ul {
                                 position: relative;
@@ -131,6 +133,10 @@
                                 li {
                                     &:before {
                                         display: none;
+                                    }
+                                    a {
+                                        width: auto;
+                                        left: 100%;
                                     }
                                 }
                             }
