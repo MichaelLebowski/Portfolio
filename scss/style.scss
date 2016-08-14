@@ -30,9 +30,10 @@
                         position: relative;
                         box-sizing: border-box;
                         background-color: skyblue;
+                        border: 1px solid #ddd;
                         .vertical-animation {
                             position: absolute;
-                            min-width: 100px;
+                            min-width: 50px;
                             height: 4px;
                             background-color: white;
                             left: 0;
