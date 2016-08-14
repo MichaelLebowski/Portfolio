@@ -27,9 +27,19 @@
                         }
                     }
                     .navigation-list {
+                        position: relative;
                         box-sizing: border-box;
                         background-color: skyblue;
+                        .vertical-animation {
+                            position: absolute;
+                            min-width: 100px;
+                            height: 4px;
+                            background-color: white;
+                            left: 0;
+                            bottom: 0;
+                        }
                         ul {
+                            position: relative;
                             width: inherit;
                             height: 100%;
                             display: flex;
@@ -47,15 +57,17 @@
                                     align-items: center;
                                     box-sizing: border-box;
                                     padding: 0 10px 0 10px;
+                                    line-height: 1.1em;
+                                    text-decoration: none;
+                                    margin: 0;
                                     &:first-of-type {
                                         padding-left: 20px;
                                     }
                                     &:last-of-type {
                                         padding-right: 20px;
                                     }
-                                    line-height: 1.1em;
-                                    text-decoration: none;
-                                    margin: 0;
+                                    &.active,
+                                    &.hover {}
                                 }
                             }
                         }
