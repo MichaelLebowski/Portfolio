@@ -36,7 +36,7 @@
                             min-width: 50px;
                             height: 4px;
                             background-color: white;
-                            left: 0;
+                            left: 1px;
                             bottom: 0;
                         }
                         ul {
@@ -58,13 +58,16 @@
                                         display: none;
                                     }
                                 }
+                                &:last-of-type {
+                                    margin-right: 0px;
+                                }
                                 &:before {
                                     content: '';
                                     position: absolute;
                                     height: 26px;
                                     width: 1px;
                                     background-color: #fff;
-                                    left: 0;
+                                    left: -1px;
                                     top: 50%;
                                     margin-top: -13px;
                                 }
@@ -76,7 +79,7 @@
                                     align-items: center;
                                     box-sizing: border-box;
                                     padding: 0 10px 0 10px;
-                                    line-height: 1.1em;
+                                    line-height: 1em;
                                     text-decoration: none;
                                     margin: 0;
                                     &:first-of-type {
@@ -85,8 +88,6 @@
                                     &:last-of-type {
                                         padding-right: 20px;
                                     }
-                                    &.active,
-                                    &.hover {}
                                 }
                             }
                         }
