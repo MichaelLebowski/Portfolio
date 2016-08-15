@@ -12,7 +12,7 @@ $(window).load(function () {
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
-        if (windowWidth >= navWidth && || bowser.tablet && bowser.mobile!bowser.tablet && !bowser.mobile) {
+        if (windowWidth >= navWidth && !bowser.tablet && !bowser.mobile) {
             desktopView();
         } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
             mobileView();
