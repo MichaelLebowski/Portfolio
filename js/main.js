@@ -89,6 +89,14 @@ function desktopView() {
                     }, 800, 'easeInOutCubic');
                 }
             });
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 0) {
+                $('#navigation').addClass('scrolling');
+            } else {
+                $('#navigation').removeClass('scrolling');
+            }
+        });
     }
     navAnim();
 }
@@ -98,12 +106,13 @@ function mobileView() {
     var width = $(window).width();
     $('.navigation-list #mobile-nav').css('right', 0);
     $('#navigation').addClass('mobile');
+    $('#navigation').removeClass('scrolling');
     This = $('#mobile-nav');
     if (This.hasClass('active')) {
         This.next('ul').css('left', 0);
     } else {
         This.next('ul').css('left', width);
-        This.next('ul').find('a').css('left', width);
+        This.next('ul').find('a').css('left', width + ((width / 100) * 20));
     }
     $(window).resize(function () {
         if ($('#navigation').hasClass('mobile')) {
@@ -136,7 +145,7 @@ function mobileView() {
             $(this).next('ul').find('a').each(function (i) {
                 var speed = (i + 1) * 300
                 $(this).stop().animate({
-                    'left': windowWidth
+                    'left': windowWidth + ((windowWidth / 100) * 20)
                 }, speed, 'easeInOutCubic');
             });
         } else if (!$(this).hasClass('active')) {
@@ -151,8 +160,8 @@ function mobileView() {
                 $(this).next('ul').addClass('active');
             });
             $(this).next('ul').find('a').each(function (i) {
-                var speed = (i + 1) * 200
-                $(this).stop().animate({
+                var speed = 350;
+                $(this).stop().delay((i + 1) * 120).animate({
                     'left': '0'
                 }, speed, 'easeInOutCubic');
             });
