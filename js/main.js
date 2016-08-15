@@ -7,14 +7,14 @@ $(window).load(function () {
         navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
     if (windowWidth >= navWidth) {
         desktopView();
-    } else {
+    } else if (windowWidth < navWidth && bowser.tablet && bowser.mobile) {
         mobileView();
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
         if (windowWidth >= navWidth) {
             desktopView();
-        } else {
+        } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
             mobileView();
         }
     });
