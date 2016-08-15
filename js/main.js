@@ -118,7 +118,7 @@ function desktopView() {
 
 
 function mobileView() {
-    var width = $(window).width();
+    windowWidth = $(window).width();
     $('.navigation-list #mobile-nav').css('right', 0);
     $('#navigation').addClass('mobile');
     $('#navigation').removeClass('scrolling');
@@ -126,16 +126,17 @@ function mobileView() {
     if (This.hasClass('active')) {
         This.next('ul').css('left', 0);
     } else {
-        This.next('ul').css('left', width);
-        This.next('ul').find('a').css('left', width + ((width / 100) * 20));
+        This.next('ul').css('left', windowWidth);
+        This.next('ul').find('a').css('left', windowWidth + ((windowWidth / 100) * 20));
     }
     $(window).resize(function () {
+        windowWidth = $(window).width();
         if ($('#navigation').hasClass('mobile')) {
             if (This.hasClass('active')) {
                 This.next('ul').css('left', 0);
                 $('.navigation-list #mobile-nav').css('right', width - 67);
             } else {
-                This.next('ul').css('left', width);
+                This.next('ul').css('left', windowWidth);
                 $('.navigation-list #mobile-nav').css('right', 0);
             }
         } else {
@@ -143,7 +144,7 @@ function mobileView() {
         }
 
     });
-    $('.navigation-list ul').css('left', width);
+    $('.navigation-list ul').css('left', windowWidth);
     $('#mobile-nav').unbind().click(function () {
         windowWidth = $(window).width();
         if ($(this).hasClass('active')) {
@@ -153,7 +154,7 @@ function mobileView() {
             }, 800, 'easeInOutCubic');
             $(this).removeClass('active');
             $(this).next('ul').stop().animate({
-                'left': width
+                'left': windowWidth
             }, 800, 'easeInOutCubic', function () {
                 $(this).next('ul').removeClass('active');
             });
