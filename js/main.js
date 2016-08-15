@@ -26,7 +26,6 @@ function desktopView() {
     $('#navigation').removeClass('mobile');
     $('.navigation-list ul').css('left', 0);
     windowWidth = $(window).width();
-    console.log(windowWidth);
     $('.navigation-list #mobile-nav').css('right', 0);
 
     function navAnim() {
@@ -91,12 +90,28 @@ function desktopView() {
             });
 
         $(window).scroll(function () {
-            if ($(window).scrollTop() > 0) {
+            scrolling();
+        });
+        $('#navigation')
+            .mouseover(function () {
+                if ($(this).hasClass('scrolling')) {
+                    $(this).removeClass('scrolling');
+                }
+            })
+            .mouseleave(function () {
+                if (!$(this).hasClass('scrolling') && $(window).scrollTop() > 0) {
+                    $(this).addClass('scrolling');
+                }
+            })
+
+        function scrolling() {
+            if ($(window).scrollTop() > 0 && !$('#navigation').hasClass('mobile')) {
                 $('#navigation').addClass('scrolling');
             } else {
                 $('#navigation').removeClass('scrolling');
             }
-        });
+        }
+        scrolling();
     }
     navAnim();
 }
@@ -174,4 +189,8 @@ function mobileView() {
         .unbind().click(function () {
 
         });
+    $('#navigation')
+        .unbind().mouseover(function () {})
+        .unbind().mouseleave(function () {});
+    //$(window).unbind().scroll(function () {});
 }
