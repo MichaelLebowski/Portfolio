@@ -71,7 +71,7 @@ function desktopView() {
                         activeId = $(this).attr('id');
                         activeElement = document.getElementById(activeId);
                         activePosition = activeElement.offsetLeft;
-                        $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                        $(this).closest('.navigation-list').find('.vertical-animation').animate({
                             'width': width,
                             'left': leftPosition
                         }, 800, 'easeInOutCubic');
@@ -193,5 +193,4 @@ function mobileView() {
     $('#navigation')
         .unbind().mouseover(function () {})
         .unbind().mouseleave(function () {});
-    //$(window).unbind().scroll(function () {});
 }
