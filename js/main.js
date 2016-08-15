@@ -123,6 +123,7 @@ function mobileView() {
     $('#mobile-nav').unbind().click(function () {
         windowWidth = $(window).width();
         if ($(this).hasClass('active')) {
+            $(this).find('#nav-icon').removeClass('open');
             $(this).animate({
                 'right': 0
             }, 800, 'easeInOutCubic');
@@ -139,6 +140,7 @@ function mobileView() {
                 }, speed, 'easeInOutCubic');
             });
         } else if (!$(this).hasClass('active')) {
+            $(this).find('#nav-icon').addClass('open');
             $(this).addClass('active');
             $(this).delay(120).animate({
                 'right': windowWidth - 57
