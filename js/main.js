@@ -109,7 +109,7 @@ function mobileView() {
         if ($('#navigation').hasClass('mobile')) {
             if (This.hasClass('active')) {
                 This.next('ul').css('left', 0);
-                $('.navigation-list #mobile-nav').css('right', width - 57);
+                $('.navigation-list #mobile-nav').css('right', width - 67);
             } else {
                 This.next('ul').css('left', width);
                 $('.navigation-list #mobile-nav').css('right', 0);
@@ -143,7 +143,7 @@ function mobileView() {
             $(this).find('#nav-icon').addClass('open');
             $(this).addClass('active');
             $(this).delay(120).animate({
-                'right': windowWidth - 57
+                'right': windowWidth - 67
             }, 680, 'easeInOutCubic');
             $(this).next('ul').stop().animate({
                 'left': '0'
