@@ -15,6 +15,9 @@ $activeWidth: nil;
             color: white;
             &.active {
                 $activeWidth: 100%;
+                &:before {
+                    width: $activeWidth;
+                }
             }
             &:before {
                 content: '';
