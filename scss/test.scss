@@ -25,9 +25,8 @@ $activeWidth: nil;
             &:before {
                 content: '';
                 position: absolute;
-                width: $activeWidth;
                 height: 4px;
-                background-color: antiquewhite;
+                background-color: white;
                 left: 0;
                 bottom: 0;
                 opacity: 0;
