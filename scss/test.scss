@@ -1,3 +1,4 @@
+$activeWidth;
 .wrapper {
     ul {
         display: flex;
@@ -12,10 +13,13 @@
             box-sizing: border-box;
             border: 1px solid #000;
             color: white;
+            &.active {
+                $activeWidth: autos;
+            }
             &:before {
                 content: '';
                 position: absolute;
-                width: var(--one);
+                width: $activeWidth;
                 height: 4px;
                 background-color: white;
                 left: calc(0%);
@@ -28,7 +32,7 @@
                 bottom: 0;
                 left: 0;
                 height: 4px;
-                background-color: color.backgroundColor;
+                background-color: red;
             }
             &.slide {
                 width: 100%;
