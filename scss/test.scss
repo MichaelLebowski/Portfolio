@@ -15,7 +15,10 @@ $activeWidth: nil;
             color: white;
             &.active {
                 $activeWidth: 100%;
-                &:before+ .slide {
+                &:before {
+                    width: $activeWidth;
+                }
+                &~ .slide {
                     width: $activeWidth;
                 }
             }
