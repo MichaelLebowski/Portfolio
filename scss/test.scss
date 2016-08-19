@@ -1,4 +1,4 @@
-$activeWidth: null;
+$activeWidth: nil;
 .wrapper {
     ul {
         display: flex;
@@ -14,7 +14,7 @@ $activeWidth: null;
             border: 1px solid #000;
             color: white;
             &.active {
-                $activeWidth: auto;
+                $activeWidth: 100%;
             }
             &:before {
                 content: '';
@@ -22,9 +22,10 @@ $activeWidth: null;
                 width: $activeWidth;
                 height: 4px;
                 background-color: white;
-                left: calc(0%);
+                left: 0;
                 bottom: 0;
                 opacity: 0;
+                z-index: 999;
             }
             &.full {
                 width: 100%;
