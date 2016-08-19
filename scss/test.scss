@@ -15,7 +15,7 @@ $activeWidth: nil;
             color: white;
             &.active {
                 $activeWidth: 100%;
-                &:before {
+                &:before+ .slide {
                     width: $activeWidth;
                 }
             }
@@ -24,7 +24,7 @@ $activeWidth: nil;
                 position: absolute;
                 width: $activeWidth;
                 height: 4px;
-                background-color: aliceblue;
+                background-color: antiquewhite;
                 left: 0;
                 bottom: 0;
                 opacity: 0;
