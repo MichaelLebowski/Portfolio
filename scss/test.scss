@@ -14,13 +14,13 @@ $activeWidth: nil;
             border: 1px solid #000;
             color: white;
             &.active {
-                $activeWidth: 100%;
+                $activeWidth: calc(100%);
                 &:before {
                     width: $activeWidth;
                 }
-                &~ .slide {
-                    width: $activeWidth;
-                }
+            }
+            &.slide {
+                width: $activeWidth;
             }
             &:before {
                 content: '';
