@@ -1,0 +1,79 @@
+:root {
+            --one;
+        }
+
+        .wrapper ul {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            padding: 0;
+            margin: 0;
+            background-color: darkcyan;
+        }
+
+        .wrapper li {
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #000;
+            color: white;
+        }
+
+        .wrapper li.active:before {
+            var(--one): 100%;
+        }
+
+        .wrapper li:before {
+            content: '';
+            position: absolute;
+            width: var(--one);
+            height: 4px;
+            background-color: white;
+            left: calc(0%);
+            bottom: 0;
+            opacity: 0;
+        }
+
+        @variables color {
+            backgroundColor: #fff;
+        }
+
+        .wrapper li:hover:before @hoverWidth {
+            width: calc(100%);
+        }
+
+        .wrapper li:hover:before @hoverLeft {
+            left: calc(0%);
+        }
+
+        .wrapper .slide {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+        }
+
+        .wrapper .slide div {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background-color: color.backgroundColor;
+        }
+
+        @keyframes cssAnimation1 {
+            from {
+                width: 0;
+                left: 0;
+            }
+            to {
+                width: hoverWidth;
+                left: hoverLeft;
+            }
+        }
+
+        .wrapper li:hover:before+ .slide div {
+            animation: cssAnimation1 ease-in-out;
+        }

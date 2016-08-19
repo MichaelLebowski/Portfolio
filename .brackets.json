@@ -16,5 +16,23 @@
                 "Firefox ESR"
             ]
         }
+    },
+    "path": {
+        "test.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "output": "test.css",
+                "outputDir": "../css/",
+                "outputStyle": "compressed"
+            },
+            "brackets-git.gitPath": "git",
+            "linting.collapsed": true,
+            "mikaeljorhult.bracketsAutoprefixer.visualCascade": false,
+            "mikaeljorhult.bracketsAutoprefixer.browsers": [
+                "> 1%",
+                "last 2 versions",
+                "Firefox ESR"
+            ]
+        }
     }
 }
