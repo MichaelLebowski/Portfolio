@@ -1,7 +1,7 @@
 $activeWidth: 100%;
 @keyframes cssAnimation1 {
     from {
-        width: 0;
+        width: 0%;
     }
     to {
         width: 100%;
@@ -25,16 +25,18 @@ $activeWidth: 100%;
             &:before {
                 content: '';
                 position: absolute;
-                width: 0px;
+                width: 0%;
                 height: 4px;
                 background-color: white;
                 left: 0;
                 bottom: 0;
                 z-index: 999;
+                transition: width .8s ease-in-out;
             }
             &:hover {
                 &:before {
-                    animation: cssAnimation1 .8s ease-in-out;
+                    width: 100%;
+                    transition: width .8s ease-in-out;
                 }
             }
         }
