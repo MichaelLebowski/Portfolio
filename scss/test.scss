@@ -1,4 +1,13 @@
-$activeWidth: nil;
+$activeWidth: 100%;
+@keyframes cssAnimation1 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
 .wrapper {
     ul {
         display: flex;
@@ -13,51 +22,21 @@ $activeWidth: nil;
             box-sizing: border-box;
             border: 1px solid #000;
             color: white;
-            &.active {
-                $activeWidth: calc(100%);
-                &:before {
-                    width: $activeWidth;
-                }
-            }
-            &.slide {
-                width: $activeWidth;
-            }
             &:before {
                 content: '';
                 position: absolute;
+                width: 0px;
                 height: 4px;
                 background-color: white;
                 left: 0;
                 bottom: 0;
-                opacity: 0;
                 z-index: 999;
             }
-            &.full {
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 4px;
-                background-color: red;
-            }
-            &.slide {
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 4px;
+            &:hover {
+                &:before {
+                    animation: cssAnimation1 .8s ease-in-out;
+                }
             }
         }
-    }
-}
-
-@keyframes cssAnimation1 {
-    from {
-        width: 0;
-        left: 0;
-    }
-    to {
-        width: hoverWidth;
-        left: hoverLeft;
     }
 }
