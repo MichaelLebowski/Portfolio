@@ -51,43 +51,47 @@ function desktopView() {
             'left': leftPosition
         }, 0, 'easeInOutCubic');
 
-        $('.navigation-list ul li')
-            .mouseover(function () {
-                index = $(this).index();
-                width = $(this).width();
-                activeId = $('.navigation-list ul li.active').attr('id');
-                activeElement = document.getElementById(activeId);
-                activePosition = activeElement.offsetLeft;
-                activeWith = $('.navigation-list ul li.active').width();
-                id = $(this).attr('id');
-                element = document.getElementById(id);
-                leftPosition = element.offsetLeft;
-                $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
-                    'width': width,
-                    'left': leftPosition
-                }, 800, 'easeInOutCubic');
-                $(this).click(function () {
+        function hover() {
+            $('.navigation-list ul li')
+                .mouseover(function () {
+                    console.log('hover');
+                    index = $(this).index();
+                    width = $(this).width();
+                    activeId = $('.navigation-list ul li.active').attr('id');
+                    activeElement = document.getElementById(activeId);
+                    activePosition = activeElement.offsetLeft;
+                    activeWith = $('.navigation-list ul li.active').width();
+                    id = $(this).attr('id');
+                    element = document.getElementById(id);
+                    leftPosition = element.offsetLeft;
+                    $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                        'width': width,
+                        'left': leftPosition
+                    }, 800, 'easeInOutCubic');
+                    $(this).click(function () {
+                        if (!$(this).hasClass('active')) {
+                            activeId = $(this).attr('id');
+                            activeElement = document.getElementById(activeId);
+                            activePosition = activeElement.offsetLeft;
+                            $(this).closest('.navigation-list').find('.vertical-animation').animate({
+                                'width': width,
+                                'left': leftPosition
+                            }, 800, 'easeInOutCubic');
+                            $('.navigation-list ul li').removeClass('active');
+                            $(this).addClass('active');
+                        }
+                    });
+                })
+                .mouseleave(function () {
                     if (!$(this).hasClass('active')) {
-                        activeId = $(this).attr('id');
-                        activeElement = document.getElementById(activeId);
-                        activePosition = activeElement.offsetLeft;
-                        $(this).closest('.navigation-list').find('.vertical-animation').animate({
-                            'width': width,
-                            'left': leftPosition
+                        $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
+                            'width': activeWith,
+                            'left': activePosition,
                         }, 800, 'easeInOutCubic');
-                        $('.navigation-list ul li').removeClass('active');
-                        $(this).addClass('active');
                     }
                 });
-            })
-            .mouseleave(function () {
-                if (!$(this).hasClass('active')) {
-                    $(this).closest('.navigation-list').find('.vertical-animation').stop().animate({
-                        'width': activeWith,
-                        'left': activePosition,
-                    }, 800, 'easeInOutCubic');
-                }
-            });
+        }
+        hover();
 
         $(window).scroll(function () {
             scrolling();
@@ -112,6 +116,23 @@ function desktopView() {
             }
         }
         scrolling();
+
+        $(window).blur(function () {
+            console.log('sliding back');
+            activeId = $('.navigation-list ul li.active').attr('id');
+            activeElement = document.getElementById(activeId);
+            activePosition = activeElement.offsetLeft;
+            activeWith = $('.navigation-list ul li.active').width();
+            $('.navigation-list').find('.vertical-animation').stop().animate({
+                'width': activeWith,
+                'left': activePosition,
+            }, 800, 'easeInOutCubic');
+        });
+        $(window).focusin(function () {
+            $('.navigation-list ul li').focusin(function () {
+                hover();
+            });
+        });
     }
     navAnim();
 }

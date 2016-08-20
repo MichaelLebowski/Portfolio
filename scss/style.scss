@@ -19,13 +19,13 @@
                     width: 100%;
                     height: 80px;
                     transition: height .4s ease-out;
+                    background-color: $navigation;
                     &.scrolling {
                         height: 40px;
                         transition: height .4s ease-out;
                     }
                     .home {
                         box-sizing: border-box;
-                        background-color: azure;
                         cursor: pointer;
                         a {
                             display: flex;
