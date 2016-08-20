@@ -23,7 +23,7 @@ $(window).load(function () {
 
 function desktopView() {
     $('.navigation-list #mobile-nav').removeClass('active');
-    $('#navigation').removeClass('mobile');
+    $('main').removeClass('mobile');
     $('.navigation-list ul').css('left', 0);
     windowWidth = $(window).width();
     $('.navigation-list #mobile-nav').css('right', 0);
@@ -141,7 +141,7 @@ function desktopView() {
 function mobileView() {
     windowWidth = $(window).width();
     $('.navigation-list #mobile-nav').css('right', 0);
-    $('#navigation').addClass('mobile');
+    $('main').addClass('mobile');
     $('#navigation').removeClass('scrolling');
     This = $('#mobile-nav');
     if (This.hasClass('active')) {
@@ -152,7 +152,7 @@ function mobileView() {
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
-        if ($('#navigation').hasClass('mobile')) {
+        if ($('main').hasClass('mobile')) {
             if (This.hasClass('active')) {
                 This.next('ul').css('left', 0);
                 $('.navigation-list #mobile-nav').css('right', width - 67);
