@@ -1,238 +1,244 @@
-    html,
-    body {
-        $navigation: rgba(0, 0, 0, 0.5);
-        $navanimation: rgba(255, 255, 255, 0.4);
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        main {
-            height: 2000px;
-            background-image: url(../img/homeHg.jpg);
-            background-repeat: no-repeat;
-            background-size: contain;
-            nav {
-                position: relative;
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';
+html,
+body {
+    $navigation: rgba(0, 0, 0, 0.5);
+    $navanimation: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    main {
+        height: 2000px;
+        background-image: url(../img/homeHg.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        nav {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            margin-bottom: 15px;
+            #navigation {
+                position: fixed;
+                display: flex;
+                justify-content: space-between;
+                flex-flow: row nowrap;
                 width: 100%;
                 height: 80px;
-                margin-bottom: 15px;
-                #navigation {
-                    position: fixed;
-                    display: flex;
-                    justify-content: space-between;
-                    flex-flow: row nowrap;
-                    width: 100%;
-                    height: 80px;
+                transition: height .4s ease-out;
+                background-color: $navigation;
+                &.scrolling {
+                    height: 40px;
                     transition: height .4s ease-out;
-                    background-color: $navigation;
-                    &.scrolling {
-                        height: 40px;
-                        transition: height .4s ease-out;
-                    }
-                    .home {
-                        box-sizing: border-box;
-                        cursor: pointer;
-                        a {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            width: 100%;
-                            height: 100%;
-                            .logo {
-                                padding: 10px;
-                                width: 160px;
-                                height: 35px;
-                            }
+                }
+                .home {
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        .logo {
+                            padding: 10px;
+                            width: 160px;
+                            height: 35px;
                         }
                     }
-                    .navigation-list {
+                }
+                .navigation-list {
+                    position: relative;
+                    box-sizing: border-box;
+                    border: 1px solid #ddd;
+                    cursor: pointer;
+                    .vertical-animation {
+                        position: absolute;
+                        min-width: 50px;
+                        height: 4px;
+                        background-color: $navanimation;
+                        left: 0;
+                        bottom: 0;
+                        z-index: 99;
+                    }
+                    #mobile-nav {
+                        display: none;
+                    }
+                    ul {
                         position: relative;
-                        box-sizing: border-box;
-                        border: 1px solid #ddd;
-                        cursor: pointer;
-                        .vertical-animation {
-                            position: absolute;
-                            min-width: 50px;
-                            height: 4px;
-                            background-color: $navanimation;
-                            left: 0;
-                            bottom: 0;
-                            z-index: 99;
-                        }
-                        #mobile-nav {
-                            display: none;
-                        }
-                        ul {
+                        width: inherit;
+                        height: 100%;
+                        left: 0;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        margin: 0;
+                        padding: 0;
+                        li {
                             position: relative;
-                            width: inherit;
+                            width: auto;
                             height: 100%;
-                            left: 0;
-                            display: flex;
-                            flex-flow: row nowrap;
-                            margin: 0;
-                            padding: 0;
-                            li {
-                                position: relative;
-                                width: auto;
-                                height: 100%;
-                                list-style: none;
-                                margin-left: 1px;
-                                &:first-of-type {
-                                    margin-left: 0;
-                                    &:before {
-                                        display: none;
-                                    }
-                                }
-                                &:last-of-type {
-                                    margin-right: 0px;
-                                }
+                            list-style: none;
+                            margin-left: 1px;
+                            &:first-of-type {
+                                margin-left: 0;
                                 &:before {
-                                    content: '';
-                                    position: absolute;
-                                    height: 26px;
-                                    width: 1px;
-                                    background-color: $navanimation;
-                                    left: -1px;
-                                    top: 50%;
-                                    margin-top: -13px;
+                                    display: none;
                                 }
-                                a {
-                                    pointer-events: none;
-                                    width: 100%;
-                                    height: inherit;
-                                    display: flex;
-                                    align-items: center;
-                                    box-sizing: border-box;
-                                    padding: 0 20px 0 20px;
-                                    line-height: 1em;
-                                    text-decoration: none;
-                                    margin: 0;
-                                }
+                            }
+                            &:last-of-type {
+                                margin-right: 0px;
+                            }
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                height: 26px;
+                                width: 1px;
+                                background-color: $navanimation;
+                                left: -1px;
+                                top: 50%;
+                                margin-top: -13px;
+                            }
+                            a {
+                                pointer-events: none;
+                                width: 100%;
+                                height: inherit;
+                                display: flex;
+                                align-items: center;
+                                box-sizing: border-box;
+                                padding: 0 20px 0 20px;
+                                font-family: 'Open Sans', sans-serif;
+                                color: white;
+                                line-height: 1em;
+                                text-decoration: none;
+                                margin: 0;
                             }
                         }
                     }
                 }
             }
-            &.mobile {
-                background-size: 300%;
-                background-position: top right 20%;
-                nav {
-                    #navigation {
-                        flex-flow: column nowrap;
+        }
+        &.mobile {
+            background-size: 300%;
+            background-position: top right 20%;
+            nav {
+                #navigation {
+                    flex-flow: column nowrap;
+                    border: none;
+                    background-color: transparent;
+                    .home {
+                        a {
+                            justify-content: flex-start;
+                            .logo {
+                                padding: 10px 0 10px 10px;
+                            }
+                        }
+                    }
+                    .navigation-list {
                         border: none;
-                        background-color: transparent;
-                        .home {
-                            a {
-                                justify-content: flex-start;
-                                .logo {
-                                    padding: 10px 0 10px 10px;
+                        cursor: default;
+                        .vertical-animation {
+                            display: none;
+                        }
+                        #mobile-nav {
+                            position: absolute;
+                            right: 0;
+                            top: 15px;
+                            display: block;
+                            width: 50px;
+                            height: 50px;
+                            background-color: $navigation;
+                            cursor: pointer;
+                            z-index: 98;
+                            border-left: 1px solid #fff;
+                            border-top: 1px solid #fff;
+                            border-bottom: 1px solid #fff;
+                            border-top-left-radius: 5px;
+                            border-bottom-left-radius: 5px;
+                            border-right: 1px solid $navigation;
+                            transition: all .8s easeInOutCubic;
+                            &.active {
+                                border-right: 1px solid #fff;
+                                border-radius: 5px;
+                            }
+                            #nav-icon {
+                                width: 50px;
+                                height: 50px;
+                                position: relative;
+                                transform: rotate(0deg);
+                                transition: .8s ease-in-out;
+                                cursor: pointer;
+                                box-sizing: border-box;
+                                padding: 8px;
+                                background-color: $navigation;
+                                transition: background-color .8s ease-in;
+                                span {
+                                    display: block;
+                                    position: absolute;
+                                    height: 5px;
+                                    width: 34px;
+                                    background: #fff;
+                                    border-radius: 5px;
+                                    opacity: 1;
+                                    left: 8px;
+                                    transform: rotate(0deg);
+                                    transition: .7s ease-in-out;
+                                    &:nth-child(1) {
+                                        top: 8px;
+                                    }
+                                    &:nth-child(2),
+                                    &:nth-child(3) {
+                                        top: 23px;
+                                    }
+                                    &:nth-child(4) {
+                                        top: 37px;
+                                    }
+                                }
+                                &.open {
+                                    background-color: rgba(0, 0, 0, 0);
+                                    transition: background-color .3s ease-in;
+                                    span {
+                                        &:nth-child(1) {
+                                            top: 18px;
+                                            width: 0%;
+                                            left: 50%;
+                                        }
+                                        &:nth-child(2) {
+                                            transform: rotate(45deg);
+                                        }
+                                        &:nth-child(3) {
+                                            transform: rotate(-45deg);
+                                        }
+                                        &:nth-child(4) {
+                                            top: 18px;
+                                            width: 0%;
+                                            left: 50%;
+                                        }
+                                    }
                                 }
                             }
                         }
-                        .navigation-list {
-                            border: none;
-                            cursor: default;
-                            .vertical-animation {
-                                display: none;
-                            }
-                            #mobile-nav {
-                                position: absolute;
-                                right: 0;
-                                top: 15px;
-                                display: block;
-                                width: 50px;
-                                height: 50px;
-                                background-color: $navigation;
-                                cursor: pointer;
-                                z-index: 98;
-                                border-left: 1px solid #fff;
-                                border-top: 1px solid #fff;
-                                border-bottom: 1px solid #fff;
-                                border-top-left-radius: 5px;
-                                border-bottom-left-radius: 5px;
-                                border-right: 1px solid $navigation;
-                                transition: all .8s easeInOutCubic;
-                                &.active {
-                                    border-right: 1px solid #fff;
-                                    border-radius: 5px;
+                        ul {
+                            position: relative;
+                            left: 100%;
+                            flex-flow: column nowrap;
+                            box-sizing: border-box;
+                            padding: 80px 15px 0 15px;
+                            background-color: $navigation;
+                            li {
+                                border-top: 1px solid $navanimation;
+                                padding: 20px 0;
+                                margin: 0;
+                                &:first-of-type {
+                                    padding-top: 15px;
+                                    border-top: none;
                                 }
-                                #nav-icon {
-                                    width: 50px;
-                                    height: 50px;
+                                &:before {
+                                    display: none;
+                                }
+                                a {
                                     position: relative;
-                                    transform: rotate(0deg);
-                                    transition: .8s ease-in-out;
-                                    cursor: pointer;
-                                    box-sizing: border-box;
-                                    padding: 8px;
-                                    span {
-                                        display: block;
-                                        position: absolute;
-                                        height: 5px;
-                                        width: 34px;
-                                        background: #fff;
-                                        border-radius: 5px;
-                                        opacity: 1;
-                                        left: 8px;
-                                        transform: rotate(0deg);
-                                        transition: .7s ease-in-out;
-                                        &:nth-child(1) {
-                                            top: 8px;
-                                        }
-                                        &:nth-child(2),
-                                        &:nth-child(3) {
-                                            top: 23px;
-                                        }
-                                        &:nth-child(4) {
-                                            top: 37px;
-                                        }
-                                    }
-                                    &.open {
-                                        span {
-                                            &:nth-child(1) {
-                                                top: 18px;
-                                                width: 0%;
-                                                left: 50%;
-                                            }
-                                            &:nth-child(2) {
-                                                transform: rotate(45deg);
-                                            }
-                                            &:nth-child(3) {
-                                                transform: rotate(-45deg);
-                                            }
-                                            &:nth-child(4) {
-                                                top: 18px;
-                                                width: 0%;
-                                                left: 50%;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ul {
-                                position: relative;
-                                left: 100%;
-                                flex-flow: column nowrap;
-                                box-sizing: border-box;
-                                padding: 80px 15px 0 15px;
-                                background-color: $navigation;
-                                li {
-                                    border-top: 1px solid $navanimation;
-                                    padding: 20px 0;
-                                    margin: 0;
-                                    &:first-of-type {
-                                        padding-top: 15px;
-                                        border-top: none;
-                                    }
-                                    &:before {
-                                        display: none;
-                                    }
-                                    a {
-                                        position: relative;
-                                        display: inline-block;
-                                        width: auto;
-                                        left: 120%;
-                                    }
+                                    display: inline-block;
+                                    width: auto;
+                                    left: 120%;
                                 }
                             }
                         }
@@ -241,3 +247,4 @@
             }
         }
     }
+}
