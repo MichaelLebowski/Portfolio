@@ -23,10 +23,12 @@ $(window).load(function () {
 
 function desktopView() {
     $('.navigation-list #mobile-nav').removeClass('active');
+    $('#nav-icon').removeClass('open');
     $('main').removeClass('mobile');
     $('.navigation-list ul').css('left', 0);
     windowWidth = $(window).width();
     $('.navigation-list #mobile-nav').css('right', 0);
+
 
     function navAnim() {
 
@@ -41,14 +43,13 @@ function desktopView() {
             activePosition,
             activeWith;
 
-        width = $('.navigation-list ul li.active').width();
         activeWith = $('.navigation-list ul li.active').width();
         activeId = $('.navigation-list ul li.active').attr('id');
         activeElement = document.getElementById(activeId);
         activePosition = activeElement.offsetLeft;
         $('.navigation-list ul li.active').closest('.navigation-list').find('.vertical-animation').stop().animate({
-            width: width,
-            left: leftPosition
+            width: activeWith,
+            left: activePosition
         }, 0, 'easeInOutCubic');
 
         function hover() {
@@ -128,8 +129,8 @@ function desktopView() {
                 left: activePosition,
             }, 800, 'easeInOutCubic');
         });
-        $(window).focusin(function () {
-            $('.navigation-list ul li').focusin(function () {
+        $(window).focus(function () {
+            $('.navigation-list ul li').focus(function () {
                 hover();
             });
         });
@@ -140,13 +141,13 @@ function desktopView() {
 
 function mobileView() {
     windowWidth = $(window).width();
-    $('.navigation-list #mobile-nav').css('right', 0);
     $('main').addClass('mobile');
     $('#navigation').removeClass('scrolling');
     This = $('#mobile-nav');
     if (This.hasClass('active')) {
         This.next('ul').css('left', 0);
     } else {
+        This.css('right', 0);
         This.next('ul').css('left', windowWidth);
         This.next('ul').find('a').css('left', windowWidth + ((windowWidth / 100) * 20));
     }
@@ -155,10 +156,10 @@ function mobileView() {
         if ($('main').hasClass('mobile')) {
             if (This.hasClass('active')) {
                 This.next('ul').css('left', 0);
-                $('.navigation-list #mobile-nav').css('right', width - 67);
+                This.css('right', windowWidth - 67);
             } else {
                 This.next('ul').css('left', windowWidth);
-                $('.navigation-list #mobile-nav').css('right', 0);
+                This.css('right', 0);
             }
         } else {
             This.next('ul').css('left', 0);
@@ -209,7 +210,8 @@ function mobileView() {
         .unbind().mouseover(function () {})
         .unbind().mouseleave(function () {})
         .unbind().click(function () {
-
+            $('.navigation-list ul li').removeClass('active');
+            $(this).addClass('active');
         });
     $('#navigation')
         .unbind().mouseover(function () {})
