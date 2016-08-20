@@ -114,8 +114,8 @@
                 }
             }
             &.mobile {
-                background-size: 700px;
-                background-position: top center;
+                background-size: 300%;
+                background-position: top right 20%;
                 nav {
                     #navigation {
                         flex-flow: column nowrap;
@@ -131,7 +131,7 @@
                         }
                         .navigation-list {
                             border: none;
-                            pointer-events: none;
+                            cursor: default;
                             .vertical-animation {
                                 display: none;
                             }
@@ -215,6 +215,7 @@
                                 flex-flow: column nowrap;
                                 box-sizing: border-box;
                                 padding: 80px 15px 0 15px;
+                                background-color: $navigation;
                                 li {
                                     border-top: 1px solid $navanimation;
                                     padding: 20px 0;
