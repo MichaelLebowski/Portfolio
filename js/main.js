@@ -6,7 +6,7 @@ $(function () {
         navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
     if (windowWidth >= navWidth && !bowser.tablet && !bowser.mobile) {
         $('main').removeClass('mobile');
-    } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
+    } else if (windowWidth <= navWidth || bowser.tablet || bowser.mobile) {
         $('main').addClass('mobile');
     }
 });
@@ -17,14 +17,14 @@ $(window).load(function () {
         navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
     if (windowWidth >= navWidth && !bowser.tablet && !bowser.mobile) {
         desktopView();
-    } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
+    } else if (windowWidth <= navWidth || bowser.tablet || bowser.mobile) {
         mobileView();
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
         if (windowWidth >= navWidth && !bowser.tablet && !bowser.mobile) {
             desktopView();
-        } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
+        } else if (windowWidth <= navWidth || bowser.tablet || bowser.mobile) {
             mobileView();
         }
     });

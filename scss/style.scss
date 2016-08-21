@@ -1,6 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';
 html,
 body {
+    $mainBgC: rgba(31, 19, 2, 0.6);
     $navBgC: rgba(0, 0, 0, 0.7);
     $navAcBgC: rgba(255, 255, 255, 0.2);
     $navAnimC: rgba(255, 255, 255, 1);
@@ -12,6 +13,7 @@ body {
     main {
         height: 2000px;
         background-image: url(../img/homeHg.jpg);
+        background-color: #1F1302;
         background-repeat: no-repeat;
         background-size: contain;
         nav {
@@ -229,7 +231,7 @@ body {
                         }
                         ul {
                             position: relative;
-                            height: 100%;
+                            height: auto;
                             flex-flow: column nowrap;
                             flex-grow: 1;
                             box-sizing: border-box;
