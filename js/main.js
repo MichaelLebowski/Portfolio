@@ -1,6 +1,16 @@
 var windowWidth,
     navWidth;
 
+$(function () {
+    windowWidth = $(window).width(),
+        navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
+    if (windowWidth >= navWidth && !bowser.tablet && !bowser.mobile) {
+        desktopView();
+    } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
+        mobileView();
+    }
+});
+
 $(window).load(function () {
     $('.vertical-animation').css('width', $('nav .navigation-list li:first-child').outerWidth());
     windowWidth = $(window).width(),
