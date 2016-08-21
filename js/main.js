@@ -193,7 +193,8 @@ function mobileView() {
             $(this).next('.navigation-list').find('a').each(function (i) {
                 var speed = (i + 1) * 300
                 $(this).stop().animate({
-                    left: windowWidth + ((windowWidth / 100) * 20)
+                    left: windowWidth + ((windowWidth / 100) * 20),
+                    opacity: 0
                 }, speed, 'easeInOutCubic');
             });
         } else if (!$(this).hasClass('active')) {
@@ -208,9 +209,10 @@ function mobileView() {
                 $(this).next('.navigation-list').addClass('active');
             });
             $(this).next('.navigation-list').find('a').each(function (i) {
-                var speed = 350;
+                var speed = 400;
                 $(this).stop().delay((i + 1) * 120).animate({
-                    left: '0'
+                    left: 0,
+                    opacity: 1
                 }, speed, 'easeInOutCubic');
             });
         }

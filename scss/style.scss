@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';
 html,
 body {
-    $navBgC: rgba(0, 0, 0, 0.5);
+    $navBgC: rgba(0, 0, 0, 0.7);
     $navAcBgC: rgba(255, 255, 255, 0.2);
     $navAnimC: rgba(255, 255, 255, 1);
     $navFontC: rgba(255, 255, 255, 1);
@@ -121,14 +121,16 @@ body {
             background-size: 300%;
             background-position: top right 20%;
             nav {
+                position: fixed;
                 height: auto;
                 #navigation {
                     position: relative;
                     flex-flow: column nowrap;
                     border: none;
                     background-color: transparent;
-                    height: 100%;
+                    height: auto;
                     .home {
+                        height: 82px;
                         background-color: $navBgC;
                         a {
                             justify-content: flex-start;
@@ -232,6 +234,7 @@ body {
                             margin: 27px 10vw 27px 10vw;
                             padding: 10px;
                             border: 1px solid #fff;
+                            overflow: hidden;
                             li {
                                 height: auto;
                                 padding: 4vw 0 4vw 0;
@@ -253,6 +256,7 @@ body {
                                     position: relative;
                                     display: inline-block;
                                     width: auto;
+                                    opacity: 0;
                                     left: 120%;
                                     font-weight: bold;
                                 }
