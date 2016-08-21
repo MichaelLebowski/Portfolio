@@ -176,7 +176,6 @@ function mobileView() {
         }
 
     });
-    $('.navigation-list').css('left', windowWidth);
     $('#mobile-nav').unbind().click(function () {
         windowWidth = $(window).width();
         if ($(this).hasClass('active')) {

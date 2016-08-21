@@ -5,11 +5,11 @@
             "sass.options": {
                 "output": "style.css",
                 "outputDir": "../css/",
-                "outputStyle": "nested",
+                "outputStyle": "compressed",
                 "sourceComments": false
             },
             "brackets-git.gitPath": "git",
-            "linting.collapsed": false,
+            "linting.collapsed": true,
             "mikaeljorhult.bracketsAutoprefixer.visualCascade": false,
             "mikaeljorhult.bracketsAutoprefixer.browsers": [
                 "> 1%",
