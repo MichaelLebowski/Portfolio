@@ -5,7 +5,8 @@
             "sass.options": {
                 "output": "style.css",
                 "outputDir": "../css/",
-                "outputStyle": "compressed"
+                "outputStyle": "nested",
+                "sourceComments": false
             },
             "brackets-git.gitPath": "git",
             "linting.collapsed": false,
@@ -14,7 +15,8 @@
                 "> 1%",
                 "last 2 versions",
                 "Firefox ESR"
-            ]
+            ],
+            "mikaeljorhult.bracketsAutoprefixer.enabled": true
         }
     }
 }

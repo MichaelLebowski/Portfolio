@@ -48,6 +48,9 @@ body {
                         }
                     }
                 }
+                #mobile-nav {
+                    display: none;
+                }
                 .navigation-list {
                     position: relative;
                     box-sizing: border-box;
@@ -60,9 +63,6 @@ body {
                         left: 0;
                         bottom: 0;
                         z-index: 99;
-                    }
-                    #mobile-nav {
-                        display: none;
                     }
                     ul {
                         position: relative;
@@ -121,12 +121,15 @@ body {
             background-size: 300%;
             background-position: top right 20%;
             nav {
+                height: auto;
                 #navigation {
+                    position: relative;
                     flex-flow: column nowrap;
                     border: none;
                     background-color: transparent;
                     height: 100%;
                     .home {
+                        background-color: $navBgC;
                         a {
                             justify-content: flex-start;
                             .logo {
@@ -134,107 +137,109 @@ body {
                             }
                         }
                     }
-                    .navigation-list {
-                        border: none;
-                        cursor: default;
-                        height: calc(100% - 55px);
-                        .vertical-animation {
-                            display: none;
+                    #mobile-nav {
+                        position: absolute;
+                        right: 0;
+                        top: 15px;
+                        display: block;
+                        width: 50px;
+                        height: 50px;
+                        cursor: pointer;
+                        z-index: 98;
+                        border-left: 1px solid #fff;
+                        border-top: 1px solid #fff;
+                        border-bottom: 1px solid #fff;
+                        border-right: 1px solid $navBgC;
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                        transition: all .8s easeInOutCubic;
+                        &.active {
+                            border-right-color: #fff;
+                            border-radius: 5px;
                         }
-                        #mobile-nav {
-                            position: absolute;
-                            right: 0;
-                            top: 15px;
-                            display: block;
+                        #nav-icon {
                             width: 50px;
                             height: 50px;
+                            position: relative;
+                            transform: rotate(0deg);
+                            transition: .8s ease-in-out;
                             cursor: pointer;
-                            z-index: 98;
-                            border-left: 1px solid #fff;
-                            border-top: 1px solid #fff;
-                            border-bottom: 1px solid #fff;
-                            border-right: 1px solid $navBgC;
-                            border-top-left-radius: 5px;
-                            border-bottom-left-radius: 5px;
-                            transition: all .8s easeInOutCubic;
-                            &.active {
-                                border-right-color: #fff;
+                            box-sizing: border-box;
+                            padding: 8px;
+                            background-color: $navBgC;
+                            transition: background-color .8s ease-in;
+                            span {
+                                display: block;
+                                position: absolute;
+                                height: 5px;
+                                width: 34px;
+                                background: #fff;
                                 border-radius: 5px;
-                            }
-                            #nav-icon {
-                                width: 50px;
-                                height: 50px;
-                                position: relative;
+                                opacity: 1;
+                                left: 8px;
                                 transform: rotate(0deg);
-                                transition: .8s ease-in-out;
-                                cursor: pointer;
-                                box-sizing: border-box;
-                                padding: 8px;
-                                background-color: $navBgC;
-                                transition: background-color .8s ease-in;
+                                transition: .7s ease-in-out;
+                                &:nth-child(1) {
+                                    top: 8px;
+                                }
+                                &:nth-child(2),
+                                &:nth-child(3) {
+                                    top: 23px;
+                                }
+                                &:nth-child(4) {
+                                    top: 37px;
+                                }
+                            }
+                            &.open {
+                                background-color: rgba(0, 0, 0, 0);
+                                transition: background-color .3s ease-in;
                                 span {
-                                    display: block;
-                                    position: absolute;
-                                    height: 5px;
-                                    width: 34px;
-                                    background: #fff;
-                                    border-radius: 5px;
-                                    opacity: 1;
-                                    left: 8px;
-                                    transform: rotate(0deg);
-                                    transition: .7s ease-in-out;
                                     &:nth-child(1) {
-                                        top: 8px;
+                                        top: 18px;
+                                        width: 0%;
+                                        left: 50%;
                                     }
-                                    &:nth-child(2),
+                                    &:nth-child(2) {
+                                        transform: rotate(45deg);
+                                    }
                                     &:nth-child(3) {
-                                        top: 23px;
+                                        transform: rotate(-45deg);
                                     }
                                     &:nth-child(4) {
-                                        top: 37px;
-                                    }
-                                }
-                                &.open {
-                                    background-color: rgba(0, 0, 0, 0);
-                                    transition: background-color .3s ease-in;
-                                    span {
-                                        &:nth-child(1) {
-                                            top: 18px;
-                                            width: 0%;
-                                            left: 50%;
-                                        }
-                                        &:nth-child(2) {
-                                            transform: rotate(45deg);
-                                        }
-                                        &:nth-child(3) {
-                                            transform: rotate(-45deg);
-                                        }
-                                        &:nth-child(4) {
-                                            top: 18px;
-                                            width: 0%;
-                                            left: 50%;
-                                        }
+                                        top: 18px;
+                                        width: 0%;
+                                        left: 50%;
                                     }
                                 }
                             }
+                        }
+                    }
+                    .navigation-list {
+                        left: 100%;
+                        height: calc(100% - 55px);
+                        border: none;
+                        cursor: default;
+                        background-color: $navBgC;
+                        .vertical-animation {
+                            display: none;
                         }
                         ul {
                             position: relative;
                             height: 100%;
-                            left: 100%;
                             flex-flow: column nowrap;
+                            flex-grow: 1;
                             box-sizing: border-box;
-                            padding: 80px 15px 15px 15px;
-                            background-color: $navBgC;
+                            margin: 27px 10vw 27px 10vw;
+                            padding: 10px;
+                            border: 1px solid #fff;
                             li {
                                 height: auto;
-                                padding: 20px 0;
+                                padding: 4vw 0 4vw 0;
                                 margin: 0;
                                 border-top: 1px solid $navFontC;
                                 transition: background-color .5s ease-out;
                                 cursor: pointer;
-                                &:first-of-type {
-                                    padding-top: 15px;
+                                &:first-child {
                                     border-top: none;
                                 }
                                 &:before {
@@ -249,6 +254,7 @@ body {
                                     display: inline-block;
                                     width: auto;
                                     left: 120%;
+                                    font-weight: bold;
                                 }
                             }
                         }

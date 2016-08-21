@@ -5,9 +5,9 @@ $(function () {
     windowWidth = $(window).width(),
         navWidth = $('.home').outerWidth() + $('.navigation-list').outerWidth();
     if (windowWidth >= navWidth && !bowser.tablet && !bowser.mobile) {
-        desktopView();
+        $('main').removeClass('mobile');
     } else if (windowWidth < navWidth || bowser.tablet && bowser.mobile) {
-        mobileView();
+        $('main').addClass('mobile');
     }
 });
 
@@ -32,12 +32,12 @@ $(window).load(function () {
 });
 
 function desktopView() {
-    $('.navigation-list #mobile-nav').removeClass('active');
+    $('#mobile-nav').removeClass('active');
     $('#nav-icon').removeClass('open');
     $('main').removeClass('mobile');
-    $('.navigation-list ul').css('left', 0);
+    $('.navigation-list').css('left', 0);
     windowWidth = $(window).width();
-    $('.navigation-list #mobile-nav').css('right', 0);
+    $('#mobile-nav').css('right', 0);
 
 
     function navAnim() {
@@ -155,28 +155,28 @@ function mobileView() {
     $('#navigation').removeClass('scrolling');
     This = $('#mobile-nav');
     if (This.hasClass('active')) {
-        This.next('ul').css('left', 0);
+        This.next('.navigation-list').css('left', 0);
     } else {
         This.css('right', 0);
-        This.next('ul').css('left', windowWidth);
-        This.next('ul').find('a').css('left', windowWidth + ((windowWidth / 100) * 20));
+        This.next('.navigation-list').css('left', windowWidth);
+        This.next('.navigation-list').find('a').css('left', windowWidth + ((windowWidth / 100) * 20));
     }
     $(window).resize(function () {
         windowWidth = $(window).width();
         if ($('main').hasClass('mobile')) {
             if (This.hasClass('active')) {
-                This.next('ul').css('left', 0);
-                This.css('right', windowWidth - 67);
+                This.next('.navigation-list').css('left', 0);
+                This.css('right', 15);
             } else {
-                This.next('ul').css('left', windowWidth);
+                This.next('.navigation-list').css('left', windowWidth);
                 This.css('right', 0);
             }
         } else {
-            This.next('ul').css('left', 0);
+            This.next('.navigation-list').css('left', 0);
         }
 
     });
-    $('.navigation-list ul').css('left', windowWidth);
+    $('.navigation-list').css('left', windowWidth);
     $('#mobile-nav').unbind().click(function () {
         windowWidth = $(window).width();
         if ($(this).hasClass('active')) {
@@ -185,12 +185,12 @@ function mobileView() {
                 right: 0
             }, 800, 'easeInOutCubic');
             $(this).removeClass('active');
-            $(this).next('ul').stop().animate({
+            $(this).next('.navigation-list').stop().animate({
                 left: windowWidth
             }, 800, 'easeInOutCubic', function () {
-                $(this).next('ul').removeClass('active');
+                $(this).next('.navigation-list').removeClass('active');
             });
-            $(this).next('ul').find('a').each(function (i) {
+            $(this).next('.navigation-list').find('a').each(function (i) {
                 var speed = (i + 1) * 300
                 $(this).stop().animate({
                     left: windowWidth + ((windowWidth / 100) * 20)
@@ -199,15 +199,15 @@ function mobileView() {
         } else if (!$(this).hasClass('active')) {
             $(this).find('#nav-icon').addClass('open');
             $(this).addClass('active');
-            $(this).delay(120).animate({
-                right: windowWidth - 67
-            }, 680, 'easeInOutCubic');
-            $(this).next('ul').stop().animate({
+            $(this).delay(30).animate({
+                right: 15
+            }, 800, 'easeInOutCubic');
+            $(this).next('.navigation-list').stop().animate({
                 left: '0'
             }, 800, 'easeInOutCubic', function () {
-                $(this).next('ul').addClass('active');
+                $(this).next('.navigation-list').addClass('active');
             });
-            $(this).next('ul').find('a').each(function (i) {
+            $(this).next('.navigation-list').find('a').each(function (i) {
                 var speed = 350;
                 $(this).stop().delay((i + 1) * 120).animate({
                     left: '0'
