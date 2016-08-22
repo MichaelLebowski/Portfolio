@@ -46,10 +46,6 @@ html {
                     }
                     .home {
                         box-sizing: border-box;
-                        background-image: url(../img/homeHg.jpg);
-                        background-position: center 70%;
-                        background-repeat: no-repeat;
-                        background-size: cover;
                         a {
                             display: flex;
                             justify-content: center;
@@ -167,24 +163,16 @@ html {
                         }
                         #mobile-nav {
                             position: absolute;
-                            right: 0;
+                            right: -1px;
                             top: 15px;
                             display: block;
                             width: 50px;
                             height: 50px;
                             cursor: pointer;
                             z-index: 98;
-                            border-left: 1px solid #fff;
-                            border-top: 1px solid #fff;
-                            border-bottom: 1px solid #fff;
-                            border-right: 1px solid $navBgC;
-                            border-top-left-radius: 5px;
-                            border-bottom-left-radius: 5px;
+                            border: 1px solid $navFontC;
+                            border-radius: 5px;
                             transition: all .8s easeInOutCubic;
-                            &.active {
-                                border-right-color: #fff;
-                                border-radius: 5px;
-                            }
                             #nav-icon {
                                 width: 50px;
                                 height: 50px;

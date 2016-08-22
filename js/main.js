@@ -169,7 +169,7 @@ function mobileView() {
                 This.css('right', 15);
             } else {
                 This.next('.navigation-list').css('left', windowWidth);
-                This.css('right', 0);
+                This.css('right', -1);
             }
         } else {
             This.next('.navigation-list').css('left', 0);
@@ -181,7 +181,7 @@ function mobileView() {
         if ($(this).hasClass('active')) {
             $(this).find('#nav-icon').removeClass('open');
             $(this).animate({
-                right: 0
+                right: -1
             }, 800, 'easeInOutCubic');
             $(this).removeClass('active');
             $(this).next('.navigation-list').stop().animate({
