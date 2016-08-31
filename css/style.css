@@ -162,7 +162,7 @@ html {
                   padding: 10px 0 10px 10px; }
             html body main.mobile nav #navigation #mobile-nav {
               position: absolute;
-              right: 0;
+              right: -1px;
               top: 15px;
               display: block;
               width: 50px;
